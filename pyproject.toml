@@ -1,0 +1,12 @@
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+extend-select = ["E501"]
+select = ["ALL"]
+ignore = [
+	"T201",
+	"ANN",
+	"D",
+	"INP001",
+]
