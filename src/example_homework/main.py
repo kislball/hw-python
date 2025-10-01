@@ -1,21 +1,22 @@
 from abc import ABC, abstractmethod
 
+
 # Класс GreetingProvider является интерфейсом для различных провайдеров строк приветствия.
 # Чаще всего используется для поддержки мультиязычности, различных уровней вежиловсти и т.д.
 class GreetingProvider(ABC):
     @abstractmethod
     # get_greeting возвращает приветствие для имени name.
-    def get_greeting(self, name):
+    def get_greeting(self, name: str):
         pass
 
 # Реализация GreetingProvider для русского языка
 class RussianGreetingProvider(GreetingProvider):
-    def get_greeting(self, name):
+    def get_greeting(self, name: str):
         return f"Привет, {name}!"
 
 # Реализация GreetingProvider для английского языка
 class EnglishGreetingProvider(GreetingProvider):
-    def get_greeting(self, name):
+    def get_greeting(self, name: str):
         return f"Hello, {name}!"
 
 # Интерфейс для различных исполнителей приветствий. Например ConsoleGreetingExecutor.
@@ -23,12 +24,12 @@ class EnglishGreetingProvider(GreetingProvider):
 class GreetingExecutor(ABC):
     @abstractmethod
     # Исполняет приветствия, предоставляемое GreetingProvider.
-    def greet_using_provider(self, provider, name):
+    def greet_using_provider(self, provider: GreetingProvider, name: str):
         pass
 
 # Реализация GreetingExecutor для stdio.
 class ConsoleGreetingExecutor(GreetingExecutor):
-    def greet_using_provider(self, provider, name):
+    def greet_using_provider(self, provider: GreetingProvider, name: str):
         print(provider.get_greeting(name))
 
 provider = EnglishGreetingProvider()
