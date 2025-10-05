@@ -7,7 +7,7 @@
 """
 
 
-def solve(n):
+def solve_best(n):
     """Решает задачу о расположении n ферзей на шахматной доске размера n*n."""
 
     def _solve(row, columns, diag1, diag2):
@@ -31,4 +31,4 @@ def solve(n):
 
 if __name__ == "__main__":
     n = int(input())
-    print(solve(n))
+    print(solve_best(n))

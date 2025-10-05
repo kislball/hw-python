@@ -19,7 +19,7 @@ def check_field(queens: list[int]):
     return True
 
 
-def solve(n):
+def solve_naive(n):
     """Решает задачу о расположении n ферзей на шахматной доске размера n*n."""
     count = 0
     for perm in itertools.permutations(range(n)):
@@ -30,4 +30,4 @@ def solve(n):
 
 if __name__ == "__main__":
     n = int(input())
-    print(solve(n))
+    print(solve_naive(n))

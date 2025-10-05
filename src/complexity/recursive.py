@@ -8,7 +8,7 @@
 """
 
 
-def solve(n):
+def solve_recursive(n):
     """Решает задачу о расположении n ферзей на шахматной доске размера n*n."""
 
     def _solve(row, queens):
@@ -27,4 +27,4 @@ def solve(n):
 
 if __name__ == "__main__":
     n = int(input())
-    print(solve(n))
+    print(solve_recursive(n))
