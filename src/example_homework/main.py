@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class GreetingProvider(ABC):
     @abstractmethod
     def get_greeting(self, name):
