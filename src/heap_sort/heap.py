@@ -1,4 +1,5 @@
 def heapify(arr, n, i):
+    """Превращение поддерева с корнем в узле i(индекс в массиве arr)"""
     largest = i 
     left = 2 * i + 1 
     right = 2 * i + 2  
@@ -15,6 +16,7 @@ def heapify(arr, n, i):
         heapify(arr, n, largest)
 
 def heap_sort(arr):
+    """Сортировка кучей"""
     n = len(arr) 
 
     for i in range(n // 2 - 1, -1, -1):
