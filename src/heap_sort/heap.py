@@ -1,13 +1,13 @@
 def heapify(arr, n, i):
     largest = i 
-    l = 2 * i + 1 
-    r = 2 * i + 2  
+    left = 2 * i + 1 
+    right = 2 * i + 2  
 
-    if l < n and arr[l] > arr[largest]:
-        largest = l
+    if left < n and arr[left] > arr[largest]:
+        largest = left
 
-    if r < n and arr[r] > arr[largest]:
-        largest = r
+    if right < n and arr[right] > arr[largest]:
+        largest = right
 
     if largest != i:
         arr[i], arr[largest] = arr[largest], arr[i] 
