@@ -12,10 +12,10 @@ def sort(ls):
             break
 
 if __name__ == "__main__":
-    l = int(input("Введите длину списка: "))
+    list_len = int(input("Введите длину списка: "))
     ls = []
 
-    for i in range(l):
+    for i in range(list_len):
         ls.append(int(input(f"Введите элемент номер {i + 1}: ")))
 
     sort(ls)
