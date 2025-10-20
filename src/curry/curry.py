@@ -16,7 +16,7 @@ def curry(fn, max_n):
 
 def uncurry(fn, n):
     """Обращает каррирование функции fn для первых max_n аргументов"""
-    if max_n < 0: raise Exception("Arity passed is negative")
+    if n < 0: raise Exception("Arity passed is negative")
     def _inner(*args):
         if len(args) != n:
             raise Exception("Wrong argument number")
