@@ -1,3 +1,6 @@
+from queue import PriorityQueue
+
+
 class TreeNode:
     def __init__(self, value: str):
         self.left: None | TreeNode = None
@@ -25,21 +28,21 @@ def encode(inp: str) -> tuple[str, dict[str, str]]:
             frequencies[chr] += 1
         else:
             frequencies[chr] = 1
-    srt = sorted(frequencies.items(), key=lambda x: x[1])
-    nodes = [(TreeNode(char), value) for (char, value) in srt]
 
-    while len(nodes) > 1:
-        s1, s2 = nodes.pop(0), nodes.pop(0)
-        node = TreeNode(s1[0].value + s2[0].value)
-        node.left = s1[0]
-        node.right = s2[0]
-        sorted_insert(
-            nodes,
-            (node, s1[1] + s2[1]),
-            lambda x: x[1],
-        )
+    nodes = PriorityQueue()
+    for k, v in frequencies.items():
+        nodes.put((v, k, TreeNode(k)))
 
-    root = nodes[0][0]
+    while nodes.qsize() > 1:
+        s1 = nodes.get()
+        s2 = nodes.get()
+
+        node = TreeNode(s1[2].value + s2[2].value)
+        node.left = s1[2]
+        node.right = s2[2]
+
+        nodes.put((s1[0] + s2[0], node.value, node))
+    root = nodes.get()[2]
 
     def walk(node, acc):
         if node.left is None and node.right is None:
