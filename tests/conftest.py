@@ -39,7 +39,13 @@ def random_test_data():
 
     for _ in range(50):
         size = random.randint(0, 100)
-        data_type = random.choice(['random', 'sorted', 'reverse', 'duplicates', 'negative'])
+        data_type = random.choice([
+            'random',
+            'sorted',
+            'reverse',
+            'duplicates',
+            'negative',
+        ])
 
         if data_type == 'random':
             data = [random.randint(-1000, 1000) for _ in range(size)]
