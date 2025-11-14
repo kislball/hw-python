@@ -1,6 +1,6 @@
 def curry(fn, max_n):
     """Каррирует функцию fn для max_n первых аргументов"""
-    def _curry_call(fn, max_n, args):
+    def _curry_call(args):
         if max_n < 0:
             raise Exception("Arity passed is negative")
 
@@ -12,10 +12,10 @@ def curry(fn, max_n):
                     raise Exception("Incorrect amount of arguments passed to curry")
                 raise e
         elif len(args) < max_n:
-            return lambda x: _curry_call(fn, max_n, args + [x])
+            return lambda x: _curry_call(args + [x])
         else:
             raise Exception("Unreachable, implementation error")
-    return _curry_call(fn, max_n, [])
+    return _curry_call([])
 
 def uncurry(fn, n):
     """Обращает каррирование функции fn для первых max_n аргументов"""
